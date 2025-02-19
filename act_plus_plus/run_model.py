@@ -18,12 +18,13 @@ from einops import rearrange
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from torchvision import transforms
+#from torchvision import transforms
 from tqdm import tqdm
-import wandb
+#import wandb
 
 #from detr.models.latent_model import Latent_Model_Transformer
-from policy import ACTPolicy, CNNMLPPolicy, DiffusionPolicy
+from policy import ACTPolicy
+#, CNNMLPPolicy, DiffusionPolicy
 from utils import (
     load_data,
     compute_dict_mean,
@@ -331,7 +332,7 @@ def get_image(ts, camera_names, rand_crop_resize=False):
         curr_image = curr_image[..., int(original_size[0] * (1 - ratio) / 2): int(original_size[0] * (1 + ratio) / 2),
                      int(original_size[1] * (1 - ratio) / 2): int(original_size[1] * (1 + ratio) / 2)]
         curr_image = curr_image.squeeze(0)
-        resize_transform = transforms.Resize(original_size, antialias=True)
+        #resize_transform = transforms.Resize(original_size, antialias=True)
         curr_image = resize_transform(curr_image)
         curr_image = curr_image.unsqueeze(0)
 
