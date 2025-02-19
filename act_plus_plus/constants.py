@@ -15,5 +15,14 @@ TASK_CONFIGS = {
         'episode_len': 800,
         'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
     },
-
+    'aloha_mobile_blue_square_pink2yellow':{
+            'dataset_dir': DATA_DIR + '/aloha_mobile_blue_square_pink2yellow',
+            'episode_len': 400,
+            'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
+    },
+    'aloha_mobile_blue_square_yellow2pink':{
+            'dataset_dir': DATA_DIR + '/aloha_mobile_blue_square_yellow2pink',
+            'episode_len': 400,
+            'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
+    }
 }

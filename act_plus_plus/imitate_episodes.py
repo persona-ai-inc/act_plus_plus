@@ -5,7 +5,10 @@ import os
 import pickle
 import time
 
-from aloha.constants import FPS, FOLLOWER_GRIPPER_JOINT_OPEN, TASK_CONFIGS
+#from aloha.constants import FPS, FOLLOWER_GRIPPER_JOINT_OPEN, TASK_CONFIGS
+FPS = 50
+FOLLOWER_GRIPPER_JOINT_OPEN = 1.6214 
+from constants import TASK_CONFIGS
 from einops import rearrange
 import matplotlib.pyplot as plt
 import numpy as np
@@ -144,9 +147,7 @@ def main(args):
     expr_name = ckpt_dir.split('/')[-1]
     if not is_eval:
         wandb.init(
-            project="ExampleProject",
-            reinit=True,
-            entity="ExampleEntity",
+            project="aloha_mobile_training",
             name=expr_name,
         )
         wandb.config.update(config)
