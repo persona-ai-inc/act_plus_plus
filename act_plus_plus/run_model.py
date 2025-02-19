@@ -316,6 +316,16 @@ def eval_bc(config, ckpt_name):
 
     return
 
+def make_policy(policy_class, policy_config):
+    if policy_class == 'ACT':
+        policy = ACTPolicy(policy_config)
+    # elif policy_class == 'CNNMLP':
+    #     policy = CNNMLPPolicy(policy_config)
+    # elif policy_class == 'Diffusion':
+    #     policy = DiffusionPolicy(policy_config)
+    else:
+        raise NotImplementedError
+    return policy
 
 def get_image(ts, camera_names, rand_crop_resize=False):
     curr_images = []
@@ -333,7 +343,7 @@ def get_image(ts, camera_names, rand_crop_resize=False):
                      int(original_size[1] * (1 - ratio) / 2): int(original_size[1] * (1 + ratio) / 2)]
         curr_image = curr_image.squeeze(0)
         #resize_transform = transforms.Resize(original_size, antialias=True)
-        curr_image = resize_transform(curr_image)
+        #curr_image = resize_transform(curr_image)
         curr_image = curr_image.unsqueeze(0)
 
     return curr_image
