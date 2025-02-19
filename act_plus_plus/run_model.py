@@ -169,7 +169,7 @@ def eval_bc(config, ckpt_name):
     else:
         post_process = lambda a: a * stats['action_std'] + stats['action_mean']
 
-
+    print("Starting up real aloha node and env.")
     from aloha.real_env import make_real_env # requires aloha
     from aloha.robot_utils import move_grippers # requires aloha
     from interbotix_common_modules.common_robot.robot import (
@@ -187,6 +187,8 @@ def eval_bc(config, ckpt_name):
         robot_startup(node)
     except InterbotixException:
         pass
+
+    print("Successfully set up aloha node and env.")
     env_max_reward = 0
 
     query_frequency = policy_config['num_queries']
